@@ -14,16 +14,21 @@
 	<%
 		storage.add(book);
 	%>
-	<p>Following person has been added to storage:</p>
+	<p>Dodano taką oto książkę:</p>
 	<p>
 		Tytul:
-		<jsp:getProperty name="book" property="tytul"></jsp:getProperty>
-	</p>
+		<jsp:getProperty name="book" property="title"></jsp:getProperty></p>
 	<p>
 		Autor:
-		<jsp:getProperty name="book" property="autor"></jsp:getProperty></p>
+		<jsp:getProperty name="book" property="author"></jsp:getProperty></p>
 	<p>
-		<a href="showAllPersons.jsp">Show all persons</a>
+		Rodzaj:
+		<jsp:getProperty name="book" property="type"></jsp:getProperty></p>
+	<p>
+		<a href="showAllBooks.jsp">Show all books</a>
+	</p>
+	<p>
+		<a href="index.jsp">Powrót do strony głównej</a>
 	</p>
 
 

@@ -1,33 +1,52 @@
 package ksiega.domain;
 
 public class Book {
-	private String tytul;
+	private String title;
+	private String author;
+	private String type;
+	private long id;
 
-	public String getTytul() {
-		return tytul;
+	public String getType() {
+		return type;
 	}
 
-	public void setTytul(String tytul) {
-		this.tytul = tytul;
+	public void setType(String type) {
+		this.type = type;
 	}
-
-	public String getAutor() {
-		return autor;
-	}
-
-	public void setAutor(String autor) {
-		this.autor = autor;
-	}
-
-	private String autor;
 
 	public Book() {
 		super();
 	}
 
-	public Book(String tytul, String autor) {
+	public Book(String title, String author, String type, long id) {
 		super();
-		this.tytul = tytul;
-		this.autor = autor;
+		this.title = title;
+		this.author = author;
+		this.type = type;
+		this.id = id;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
 	}
 }

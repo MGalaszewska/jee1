@@ -7,6 +7,7 @@
 <title>Księgarnia</title>
 </head>
 <body>
-	<p>Hjello</p>
+	<p><a href="bookForm">Dodaj książkę</a></p>
+	<p><a href="showAllBooks.jsp">Lista wszystkich książek</a></p>
 </body>
 </html>

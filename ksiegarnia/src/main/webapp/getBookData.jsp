@@ -12,9 +12,13 @@
 		scope="application" />
 	<jsp:useBean id="book" class="ksiega.domain.Book" scope="session" />
 	<form action="addBook.jsp">
-		Tytul: <input type="text" name="tytul" value="" /><br /> Autor: <input
-			type="text" name="autor" value="" /><br /> <input type="submit"
+		Tytuł: <input type="text" name="title" value="" /><br /> Autor: <input
+			type="text" name="author" value="" /><br /> Rodzaj: <input
+			type="text" name="type" value="" /><br /> <input type="submit"
 			value=" OK ">
+		<p>
+			<a href="index.jsp">Powrót do strony głównej</a>
+		</p>
 	</form>
 </body>
 </html>
