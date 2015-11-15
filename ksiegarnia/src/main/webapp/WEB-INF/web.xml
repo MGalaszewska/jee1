@@ -10,8 +10,18 @@
   	<description></description>
   	<servlet-class>web.FormServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>formServletSeller</servlet-name>
+  	<display-name>formServletSeller</display-name>
+  	<description></description>
+  	<servlet-class>web.formServletSeller</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>FormServlet</servlet-name>
   	<url-pattern>/FormServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>formServletSeller</servlet-name>
+  	<url-pattern>/formServletSeller</url-pattern>
   </servlet-mapping>
 </web-app>

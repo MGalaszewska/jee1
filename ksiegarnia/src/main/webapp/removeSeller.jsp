@@ -1,27 +1,28 @@
-<%@page import="ksiega.domain.Book"%>
+<%@page import="ksiega.domain.Seller"%>
 <%@page import="ksiega.service.StorageService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<jsp:useBean id="tempBook" class="ksiega.domain.Book" scope="session" />
+<jsp:useBean id="tempSeller" class="ksiega.domain.Seller"
+	scope="session" />
 <jsp:useBean id="storage" class="ksiega.service.StorageService"
 	scope="application" />
-<jsp:setProperty name="tempBook" property="id" />
+<jsp:setProperty name="tempSeller" property="id" />
 <%
-	Book book = new Book();
-	for (Book tempB : storage.getAllBook()) {
-		if (tempB.getId() == tempBook.getId()) {
-			book.setId(tempBook.getId());
+	Seller seller = new Seller();
+	for (Seller tempS : storage.getAllSellers()) {
+		if (tempS.getId() == tempSeller.getId()) {
+			seller.setId(tempSeller.getId());
 			break;
 		}
 	}
-	storage.removeBook(book);
+	storage.removeSeller(seller);
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Usunięto książkę</title>
+<title>Usunięto pracownika</title>
 <style type="text/css">
 body {
 	background: #FFFFFF;
@@ -64,6 +65,6 @@ a:hover {
 </head>
 <body>
 	<a href="index.jsp">Powrót do strony głównej</a>
-	<a href="showAllBooks.jsp">Lista książek</a>
+	<a href="showAllSellers.jsp">Lista pracowników</a>
 </body>
 </html>

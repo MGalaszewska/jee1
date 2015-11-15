@@ -18,12 +18,11 @@ public class Book {
 		super();
 	}
 
-	public Book(String title, String author, String type, long id) {
+	public Book(String title, String author, String type) {
 		super();
 		this.title = title;
 		this.author = author;
 		this.type = type;
-		this.id = id;
 	}
 
 	public long getId() {
@@ -48,5 +47,11 @@ public class Book {
 
 	public void setAuthor(String author) {
 		this.author = author;
+	}
+	
+	public boolean validate(Book book) {
+		if(book.getTitle().length() < 3 || book.getAuthor().length() < 3 || book.getType().equals(null)) {
+			return false;
+		} return true;
 	}
 }

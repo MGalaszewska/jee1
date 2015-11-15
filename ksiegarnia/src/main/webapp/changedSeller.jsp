@@ -1,27 +1,11 @@
-<%@page import="ksiega.domain.Book"%>
-<%@page import="ksiega.service.StorageService"%>
+<%@page import="ksiega.domain.Seller"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<jsp:useBean id="tempBook" class="ksiega.domain.Book" scope="session" />
-<jsp:useBean id="storage" class="ksiega.service.StorageService"
-	scope="application" />
-<jsp:setProperty name="tempBook" property="id" />
-<%
-	Book book = new Book();
-	for (Book tempB : storage.getAllBook()) {
-		if (tempB.getId() == tempBook.getId()) {
-			book.setId(tempBook.getId());
-			break;
-		}
-	}
-	storage.removeBook(book);
-%>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Usunięto książkę</title>
+<title>Zmieniono dane pracownika</title>
 <style type="text/css">
 body {
 	background: #FFFFFF;
@@ -61,9 +45,25 @@ a:hover {
 	color: White;
 }
 </style>
+<jsp:useBean id="tempSeller" class="ksiega.domain.Seller" scope="session" />
+<jsp:useBean id="seller" class="ksiega.domain.Seller" scope="session" />
+<jsp:setProperty name="seller" property="*" />
+<jsp:useBean id="storage" class="ksiega.service.StorageService" scope="application" />
 </head>
 <body>
+
+	<%
+		for (Seller tempS : storage.getAllSellers()) {
+			if (tempS.getId() == seller.getId()) {
+				seller.setId(tempS.getId());
+				break;
+			}
+		}
+		Seller newSeller = new Seller(seller.getFirstName(),
+				seller.getLastName(), seller.getPesel(), seller.getSalary());
+		storage.updateSeller(seller, newSeller);
+	%>
 	<a href="index.jsp">Powrót do strony głównej</a>
-	<a href="showAllBooks.jsp">Lista książek</a>
+	<a href="showAllSellers.jsp">Lista pracowników</a>
 </body>
 </html>

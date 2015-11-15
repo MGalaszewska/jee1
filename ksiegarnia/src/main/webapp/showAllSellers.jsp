@@ -1,4 +1,4 @@
-<%@page import="ksiega.domain.Book"%>
+<%@page import="ksiega.domain.Seller"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Lista książek</title>
+<title>Lista pracowników</title>
 <style type="text/css">
 body {
 	background: #FFFFFF;
@@ -68,30 +68,32 @@ a:hover {
 	<jsp:useBean id="storage" class="ksiega.service.StorageService"
 		scope="application" />
 	<%
-		out.println("<table /><tr class='header'><td>Tytuł</td><td>Autor</td><td>Rodzaj</td><td>Opcje</tr>");
-		for (Book book : storage.getAllBook()) {
+		out.println("<table /><tr class='header'><td>Imię</td><td>Nazwisko</td><td>PESEL</td><td>Pensja</td><td>Opcje</tr>");
+		for (Seller seller : storage.getAllSellers()) {
 			out.println("<tr><td>"
-					+ book.getTitle()
+					+ seller.getFirstName()
 					+ "</td><td>"
-					+ book.getAuthor()
+					+ seller.getLastName()
 					+ "</td><td>"
-					+ book.getType()
+					+ seller.getPesel()
+					+ "</td><td>"
+					+ seller.getSalary()
 					+ "</td>"
-					+ "<td><form action='removeBook.jsp'>"
+					+ "<td><form action='removeSeller.jsp'>"
 					+ "<input class='przycisk' type='submit' value='   Usuń  '>"
 					+ "<input visibility: hidden type='text' name='id' value='"
-					+ book.getId()
+					+ seller.getId()
 					+ "'></form>"
-					+ "<form action='updateBook.jsp'>"
+					+ "<form action='updateSeller.jsp'>"
 					+ "<input class='przycisk' type='submit' value='Zmień'>"
 					+ "<input visibility: hidden type='text' name='id' value='"
-					+ book.getId() + "'></form></td></tr>");
+					+ seller.getId() + "'></form></td></tr>");
 
 		}
 		out.println("</table>");
 	%>
 	<p>
-		<a href="bookForm">Dodaj książkę</a>
+		<a href="sellerForm">Dodaj pracownika</a>
 	</p>
 	<p>
 		<a href="index.jsp">Powrót do strony głównej</a>
