@@ -68,7 +68,7 @@ a:hover {
 	<jsp:useBean id="storage" class="ksiega.service.StorageService"
 		scope="application" />
 	<%
-		out.println("<table /><tr class='header'><td>Tytuł</td><td>Autor</td><td>Rodzaj</td><td>Opcje</tr>");
+		out.println("<h1>Książki</h1><table /><tr class='header'><td>Tytuł</td><td>Autor</td><td>Rodzaj</td><td>Opcje</tr>");
 		for (Book book : storage.getAllBook()) {
 			out.println("<tr><td>"
 					+ book.getTitle()

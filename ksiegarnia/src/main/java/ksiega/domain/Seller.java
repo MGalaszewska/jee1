@@ -2,10 +2,10 @@ package ksiega.domain;
 
 public class Seller {
 
-	private String firstName;
-	private String lastName;
-	private String pesel;
-	private String salary;
+	private String firstName = "";
+	private String lastName = "";
+	private String pesel = "";
+	private String salary = "";
 	private long id;
 
 	
@@ -78,7 +78,7 @@ public class Seller {
 	}
 	
 	public boolean validate(Seller seller) {
-		if(seller.getFirstName().length() < 3 || seller.getLastName().length() < 3 || 
+		if(seller.getFirstName().length() < 3|| seller.getLastName().length() < 3 || 
 				(seller.getPesel().toString().length() != 11 
 				|| !tryParseLong(seller.getPesel()) || !tryParseInt(seller.getSalary()))) {
 			return false;
