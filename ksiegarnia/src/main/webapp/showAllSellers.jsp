@@ -1,12 +1,13 @@
-<%@page import="ksiega.domain.Seller"%>
+<!-- http://ankurgupta.com/blog/expression-language-not-working-in-jsp-solution/ -->
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Lista pracowników</title>
+<title>Pracownicy</title>
 <style type="text/css">
 body {
 	background: #FFFFFF;
@@ -65,39 +66,41 @@ a:hover {
 </head>
 <body>
 
+	<h1>Pracownicy</h1>
+	<table>
+	<tr class="header">
+		<td>Imię</td>
+		<td>Nazwisko</td>
+		<td>PESEL</td>
+		<td>Pensja</td>
+		<td>Opcje</td>
+	</tr>
 	<jsp:useBean id="storage" class="ksiega.service.StorageService"
 		scope="application" />
-	<%
-		out.println("<table /><tr class='header'><td>Imię</td><td>Nazwisko</td><td>PESEL</td><td>Pensja</td><td>Opcje</tr>");
-		for (Seller seller : storage.getAllSellers()) {
-			out.println("<tr><td>"
-					+ seller.getFirstName()
-					+ "</td><td>"
-					+ seller.getLastName()
-					+ "</td><td>"
-					+ seller.getPesel()
-					+ "</td><td>"
-					+ seller.getSalary()
-					+ "</td>"
-					+ "<td><form action='removeSeller.jsp'>"
-					+ "<input class='przycisk' type='submit' value='   Usuń  '>"
-					+ "<input visibility: hidden type='text' name='id' value='"
-					+ seller.getId()
-					+ "'></form>"
-					+ "<form action='updateSeller.jsp'>"
-					+ "<input class='przycisk' type='submit' value='Zmień'>"
-					+ "<input visibility: hidden type='text' name='id' value='"
-					+ seller.getId() + "'></form></td></tr>");
-
-		}
-		out.println("</table>");
-	%>
-	<p>
+	<c:forEach var="seller" items="${storage.getAllSellers()}">
+		<tr>
+			<td>${seller.getFirstName()}</td>
+			<td>${seller.getLastName()}</td>
+			<td>${seller.getPesel()}</td>
+			<td>${seller.getSalary()}</td>
+			<td>
+				<form action="removeSeller.jsp">
+					<input class="przycisk" type="submit" value="Usuń"> <input
+						visibility: hidden type="text" name="id" value=${seller.id}>
+				</form>
+				<form action="updateSeller.jsp">
+					<input class="przycisk" type="submit" value="Zmień"> <input
+						visibility: hidden type="text" name="id" value=${seller.id}>
+				</form>
+			</td>
+		</tr>
+	</c:forEach>
+	</table>
+		<p>
 		<a href="sellerForm">Dodaj pracownika</a>
 	</p>
 	<p>
 		<a href="index.jsp">Powrót do strony głównej</a>
 	</p>
-
 </body>
 </html>

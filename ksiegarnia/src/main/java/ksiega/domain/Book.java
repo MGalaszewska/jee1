@@ -1,9 +1,9 @@
 package ksiega.domain;
 
 public class Book {
-	private String title;
-	private String author;
-	private String type;
+	private String title = "";
+	private String author = "";
+	private String type = "";
 	private long id;
 
 	public String getType() {
