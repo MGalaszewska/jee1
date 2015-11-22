@@ -46,13 +46,9 @@ a:hover {
 </style>
 </head>
 <body>
-	<jsp:useBean id="seller" class="ksiega.domain.Seller" scope="session" />
-	<jsp:setProperty name="seller" property="*" />
+	<jsp:useBean id="seller" class="ksiega.domain.Seller" scope="request" />
 	<jsp:useBean id="storage" class="ksiega.service.StorageService"	scope="application" />
-	<%
-		if (seller.validate(seller)) {
-			storage.addSeller(seller);
-	%>
+	<% storage.addSeller(seller); %>
 	<p>Dodano pracownika:</p>
 	<p>
 		Imię:	 <jsp:getProperty name="seller" property="firstName"></jsp:getProperty>
@@ -60,14 +56,6 @@ a:hover {
 		PESEL:	 <jsp:getProperty name="seller" property="pesel"></jsp:getProperty>
 		Pensja:	 <jsp:getProperty name="seller" property="salary"></jsp:getProperty>
 	</p>
-
-	<%
-		} else {
-	%>
-	<p>Zostały wprowadzone niepoprawne dane</p>
-	<%
-		}
-	%>
 	<input type="button" value="Wróć" onclick="history.back(-1)" />
 	<p>
 		<a href="showAllSellers.jsp">Lista pracowników</a>

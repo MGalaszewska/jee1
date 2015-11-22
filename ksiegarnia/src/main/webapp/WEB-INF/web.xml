@@ -3,7 +3,6 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
     version="2.4">
-<<<<<<< HEAD
 	<servlet>
 		<description>
 		</description>
@@ -11,12 +10,21 @@
 		<servlet-name>DataServletBook</servlet-name>
 		<servlet-class>ksiega.web.DataServletBook</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>CheckServletSeller</display-name>
+		<servlet-name>CheckServletSeller</servlet-name>
+		<servlet-class>ksiega.web.CheckServletSeller</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>DataServletBook</servlet-name>
 		<url-pattern>/DataServletBook</url-pattern>
 	</servlet-mapping>
-=======
->>>>>>> d0282b2fc87ad4d8439e5b2585f556caca9d08ed
+	<servlet-mapping>
+		<servlet-name>CheckServletSeller</servlet-name>
+		<url-pattern>/CheckServletSeller</url-pattern>
+	</servlet-mapping>
 
     <!-- XML Code -->
 

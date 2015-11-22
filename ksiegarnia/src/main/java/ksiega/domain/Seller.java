@@ -60,7 +60,7 @@ public class Seller {
 		this.salary = salary;
 	}
 	
-	boolean tryParseLong(String value) {  
+	static boolean tryParseLong(String value) {  
 	     try {  
 	         Long.parseLong(value);  
 	         return true;  
@@ -68,7 +68,7 @@ public class Seller {
 	         return false;  
 	      }  
 	}
-	boolean tryParseInt(String value) {  
+	static boolean tryParseInt(String value) {  
 	     try {  
 	         Integer.parseInt(value);  
 	         return true;  
@@ -76,8 +76,8 @@ public class Seller {
 	         return false;  
 	      }  
 	}
-	
-	public boolean validate(Seller seller) {
+ 	
+	public static boolean validate(Seller seller) {
 		if(seller.getFirstName().length() < 3|| seller.getLastName().length() < 3 || 
 				(seller.getPesel().toString().length() != 11 
 				|| !tryParseLong(seller.getPesel()) || !tryParseInt(seller.getSalary()))) {

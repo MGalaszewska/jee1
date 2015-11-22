@@ -1,13 +1,11 @@
-<%@ page import="ksiega.domain.Book"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-
-
-
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Dodana książka</title>
+<title>Błąd</title>
+</head>
 <style type="text/css">
 body {
 	background: #FFFFFF;
@@ -47,21 +45,11 @@ a:hover {
 	color: White;
 }
 </style>
-</head>
 <body>
-	<jsp:useBean id="book" class="ksiega.domain.Book" scope="request" />
-	<jsp:useBean id="storage" class="ksiega.service.StorageService"
-		scope="application" />
-		<% storage.addBook(book); %>
-	<p>Dodano taką oto książkę:</p>
+<p class="komunikat">Wprowadzono nieprawidłowe dane!</p>
+<input type="button" value="Wróć" onclick="history.back(-1)" />
 	<p>
-		Tytul: ${book.getTitle()} <br/>
-		Autor: ${book.getAuthor()}<br/>
-		Rodzaj: ${book.getType()}<br/>
-</p>
-	<input type="button" value="Wróć" onclick="history.back(-1)" />
-	<p>
-		<a href="showAllBooks.jsp">Lista książek</a>
+		<a href="showAllSellers.jsp">Lista książek</a>
 	</p>
 	<p>
 		<a href="index.jsp">Powrót do strony głównej</a>

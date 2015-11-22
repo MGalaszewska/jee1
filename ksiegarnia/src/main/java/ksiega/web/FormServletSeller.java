@@ -32,7 +32,7 @@ public class FormServletSeller extends HttpServlet {
 				+ "a:hover {text-decoration: underline;	color: White;}"
 				+ "</style>"
 				+ "<body><h2>Wpisz dane pracownika</h2>"
-				+ "<form method='post' action='addedSeller.jsp'>"
+				+ "<form action='checkSeller'>"
 				+ "Imię: &nbsp;<input type='text' name='firstName' /> <br/>"
 				+ "Nazwisko: <input type='text' name='lastName' /> <br/>"
 				+ "PESEL: <input maxlength='11' type='text' name='pesel' /> <br/>"

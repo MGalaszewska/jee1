@@ -1,23 +1,8 @@
 <%@page import="ksiega.domain.Seller"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
-<jsp:useBean id="tempSeller" class="ksiega.domain.Seller" scope="session" />
-<jsp:useBean id="seller" class="ksiega.domain.Seller" scope="session" />
-<jsp:useBean id="storage" class="ksiega.service.StorageService"	scope="application" />
-<jsp:setProperty name="tempSeller" property="id" />
-<%
-	if (seller.validate(seller)) {
-		for (Seller tempS : storage.getAllSellers()) {
-			if (tempS.getId() == tempSeller.getId()) {
-				seller.setId(tempS.getId());
-				seller.setFirstName(tempS.getFirstName());
-				seller.setLastName(tempS.getLastName());
-				seller.setPesel(tempS.getPesel());
-				seller.setSalary(tempS.getSalary());
-				break;
-			}
-		}
-	}
-%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -65,12 +50,27 @@ a:hover {
 </style>
 </head>
 <body>
+	<jsp:useBean id="tempSeller" class="ksiega.domain.Seller"
+		scope="session" />
+	<jsp:useBean id="seller" class="ksiega.domain.Seller" scope="session" />
+	<jsp:useBean id="storage" class="ksiega.service.StorageService"
+		scope="application" />
+	<jsp:setProperty name="tempSeller" property="id" />
+	<c:forEach var="tempS" items="${storage.getAllSellers()}">
+		<c:if test="${tempS.getId() eq tempSeller.getId()}">
+				${seller.setId(tempS.getId())}
+				${seller.setFirstName(tempS.getFirstName())}
+				${seller.setLastName(tempS.getLastName())}
+				${seller.setPesel(tempS.getPesel())}
+				${seller.setSalary(tempS.getSalary())}
+				</c:if>
+	</c:forEach>
 	<form action="changedSeller.jsp">
 		<label>Imię: &nbsp;</label><input type="text" name="firstName"
 			value='<jsp:getProperty name="seller" property="firstName"></jsp:getProperty>' /><br />
 		<label>Nazwisko: &nbsp;</label><input type="text" name="lastName"
 			value='<jsp:getProperty name="seller" property="lastName"></jsp:getProperty>' /><br />
-		<label>PESEL: &nbsp;</label><input type="text" name="pesel"
+		<label>PESEL: &nbsp;</label><input maxlength='11' type="text" name="pesel"
 			value='<jsp:getProperty name="seller" property="pesel"></jsp:getProperty>' /><br />
 		<label>Pensja: &nbsp;</label><input type="text" name="salary"
 			value='<jsp:getProperty name="seller" property="salary"></jsp:getProperty>' /><br />
