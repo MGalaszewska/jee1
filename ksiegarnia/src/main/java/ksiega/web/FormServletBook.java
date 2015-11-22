@@ -15,7 +15,6 @@ public class FormServletBook extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		out.println("<html><title>Dodaj książkę</title>"
@@ -33,20 +32,15 @@ public class FormServletBook extends HttpServlet {
 				+ "a:hover {text-decoration: underline;	color: White;}"
 				+ "</style>"
 				+ "<body><h2>Wpisz dane książki</h2>"
-				+ "<form action='dataBook'>"
+				+ "<form method='post' action='addedBook.jsp'>"
 				+ "Tytuł: &nbsp;<input type='text' name='title' /> <br/>"
 				+ "Autor: <input type='text' name='author' /> <br/>"
 				+ "<input type='radio' name ='type' value='podręcznik'>Podręcznik<br/>"
 				+ "<input type='radio' name ='type' value='książka'>Książka<br/>"
 				+ "<input type='radio' name ='type' value='inne'>Inne<br/><br/>"
-				+ "<input type='checkbox' name='genre' value=sf>science-fiction<br/>"
-				+ "<input type='checkbox' name='genre' value=horror>horror<br/>"
-				+ "<input type='checkbox' name='genre' value=kryminal>kryminał<br/>"
-				+ "<input type='checkbox' name='genre' value=romans>romans<br/>"
 				+ "<input type='submit' value=' OK ' />" + "</form>"
 				+ "</body></html>"
 				+ "<p><a href='index.jsp'>Powrót do strony głównej</a></p>");
-		
 		out.close();
 	}
 }
