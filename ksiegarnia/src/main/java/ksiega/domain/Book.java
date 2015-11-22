@@ -4,7 +4,6 @@ public class Book {
 	private String title = "";
 	private String author = "";
 	private String type = "";
-<<<<<<< HEAD
 	private String genre = "";
 
 	public String getGenre() {
@@ -14,9 +13,6 @@ public class Book {
 	public void setGenre(String genre) {
 		this.genre = genre;
 	}
-
-=======
->>>>>>> d0282b2fc87ad4d8439e5b2585f556caca9d08ed
 	private long id;
 
 	public String getType() {
