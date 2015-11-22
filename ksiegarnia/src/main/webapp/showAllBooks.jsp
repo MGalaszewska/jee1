@@ -93,8 +93,6 @@ a:hover {
 	</c:forEach>
 	</table>
 		<p>
-<<<<<<< HEAD
-=======
 	<%
 		out.println("<h1>Książki</h1><table /><tr class='header'><td>Tytuł</td><td>Autor</td><td>Rodzaj</td><td>Opcje</tr>");
 		for (Book book : storage.getAllBook()) {
@@ -119,7 +117,6 @@ a:hover {
 		out.println("</table>");
 	%>
 	<p>
->>>>>>> 2a81c0f7c9682b9f8075108edbf3348ce99ff450
 		<a href="bookForm">Dodaj książkę</a>
 	</p>
 	<p>
