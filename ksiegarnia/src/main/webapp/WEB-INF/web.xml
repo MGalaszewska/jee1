@@ -3,6 +3,17 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
     version="2.4">
+	<servlet>
+		<description>
+		</description>
+		<display-name>DataServletBook</display-name>
+		<servlet-name>DataServletBook</servlet-name>
+		<servlet-class>ksiega.web.DataServletBook</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DataServletBook</servlet-name>
+		<url-pattern>/DataServletBook</url-pattern>
+	</servlet-mapping>
 
     <!-- XML Code -->
 

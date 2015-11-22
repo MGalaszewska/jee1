@@ -65,37 +65,41 @@ a:hover {
 </head>
 <body>
 
+	<h1>Książki</h1>
+	<table>
+	<tr class="header">
+		<td>Tytuł</td>
+		<td>Autor</td>
+		<td>Rodzaj</td>
+		<td>Gatunek</td>
+		<td>Opcje</td>
+	</tr>
 	<jsp:useBean id="storage" class="ksiega.service.StorageService"
 		scope="application" />
-	<%
-		out.println("<h1>Książki</h1><table /><tr class='header'><td>Tytuł</td><td>Autor</td><td>Rodzaj</td><td>Opcje</tr>");
-		for (Book book : storage.getAllBook()) {
-			out.println("<tr><td>"
-					+ book.getTitle()
-					+ "</td><td>"
-					+ book.getAuthor()
-					+ "</td><td>"
-					+ book.getType()
-					+ "</td>"
-					+ "<td><form action='removeBook.jsp'>"
-					+ "<input class='przycisk' type='submit' value='   Usuń  '>"
-					+ "<input visibility: hidden type='text' name='id' value='"
-					+ book.getId()
-					+ "'></form>"
-					+ "<form action='updateBook.jsp'>"
-					+ "<input class='przycisk' type='submit' value='Zmień'>"
-					+ "<input visibility: hidden type='text' name='id' value='"
-					+ book.getId() + "'></form></td></tr>");
-
-		}
-		out.println("</table>");
-	%>
-	<p>
+	<c:forEach var="book" items="${storage.getAllBook()}">
+		<tr>
+			<td>${book.getTitle()}</td>
+			<td>${book.getAuthor()}</td>
+			<td>${book.getType()}</td>
+			<td>${book.getGenre()}</td>
+			<td>
+				<form action="removeSeller.jsp">
+					<input class="przycisk" type="submit" value="Usuń"> <input
+						visibility: hidden type="text" name="id" value=${book.id}>
+				</form>
+				<form action="updateSeller.jsp">
+					<input class="przycisk" type="submit" value="Zmień"> <input
+						visibility: hidden type="text" name="id" value=${book.id}>
+				</form>
+			</td>
+		</tr>
+	</c:forEach>
+	</table>
+		<p>
 		<a href="bookForm">Dodaj książkę</a>
 	</p>
 	<p>
 		<a href="index.jsp">Powrót do strony głównej</a>
 	</p>
-
 </body>
 </html>
