@@ -3,21 +3,7 @@ package ksiega.domain;
 public class Book {
 	private String title = "";
 	private String author = "";
-	private String type = "";
-<<<<<<< HEAD
-
-
-=======
-	private String genre = "";
-
-	public String getGenre() {
-		return genre;
-	}
-
-	public void setGenre(String genre) {
-		this.genre = genre;
-	}
->>>>>>> 2a81c0f7c9682b9f8075108edbf3348ce99ff450
+	private String type = ""
 	private long id;
 
 	public String getType() {
