@@ -93,6 +93,33 @@ a:hover {
 	</c:forEach>
 	</table>
 		<p>
+<<<<<<< HEAD
+=======
+	<%
+		out.println("<h1>Książki</h1><table /><tr class='header'><td>Tytuł</td><td>Autor</td><td>Rodzaj</td><td>Opcje</tr>");
+		for (Book book : storage.getAllBook()) {
+			out.println("<tr><td>"
+					+ book.getTitle()
+					+ "</td><td>"
+					+ book.getAuthor()
+					+ "</td><td>"
+					+ book.getType()
+					+ "</td>"
+					+ "<td><form action='removeBook.jsp'>"
+					+ "<input class='przycisk' type='submit' value='   Usuń  '>"
+					+ "<input visibility: hidden type='text' name='id' value='"
+					+ book.getId()
+					+ "'></form>"
+					+ "<form action='updateBook.jsp'>"
+					+ "<input class='przycisk' type='submit' value='Zmień'>"
+					+ "<input visibility: hidden type='text' name='id' value='"
+					+ book.getId() + "'></form></td></tr>");
+
+		}
+		out.println("</table>");
+	%>
+	<p>
+>>>>>>> 2a81c0f7c9682b9f8075108edbf3348ce99ff450
 		<a href="bookForm">Dodaj książkę</a>
 	</p>
 	<p>
